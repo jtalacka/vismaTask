@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class DataService {
+public class DataService implements IDataService{
     @Autowired
     DataRepository dataRepository;
 
