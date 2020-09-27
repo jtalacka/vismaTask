@@ -16,10 +16,10 @@ public class DataController {
     @Autowired
     DataService dataService;
 
-    @RequestMapping(path = "/data", method = RequestMethod.GET)
-    public List<DataDto> getAllData() {
-        return dataService.getAllData();
-    }
+//    @RequestMapping(path = "/data", method = RequestMethod.GET)
+//    public List<DataDto> getAllData() {
+//        return dataService.getAllData();
+//    }
 
     @RequestMapping(path = "/data", method = RequestMethod.POST)
     public DataDto createData(@RequestBody DataDto data) {

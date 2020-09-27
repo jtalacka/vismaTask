@@ -19,13 +19,13 @@ public class DataService {
     @Autowired
     DataRepository dataRepository;
 
-    public List<DataDto> getAllData() {
-        return dataRepository
-                .findAll()
-                .stream()
-                .map(DataMapper::mapDataDto)
-                .collect(Collectors.toList());
-    }
+//    public List<DataDto> getAllData() {
+//        return dataRepository
+//                .findAll()
+//                .stream()
+//                .map(DataMapper::mapDataDto)
+//                .collect(Collectors.toList());
+//    }
 
     public DataDto createData(DataDto data) { // allow only to create but not update
         if (data.getId() != null) {
