@@ -9,7 +9,7 @@ import java.util.List;
 public interface DataRepository extends JpaRepository<Data, Long> {
     public List<Data> findAllByTypeAndQuantityIsLessThan(String type, int quantity);
 
-    public List<Data> findAllByDateIsGreaterThanEqual(LocalDate date);
+    public List<Data> findAllByDateIsLessThanEqual(LocalDate date);
 
 
 }

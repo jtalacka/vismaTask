@@ -22,7 +22,7 @@ public class DataController {
 //    }
 
     @RequestMapping(path = "/data", method = RequestMethod.POST)
-    public DataDto createData(@RequestBody DataDto data) {
+    public List<DataDto> createData(@RequestBody List<DataDto> data) {
         return dataService.createData(data);
     }
 

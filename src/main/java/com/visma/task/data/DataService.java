@@ -27,18 +27,14 @@ public class DataService {
 //                .collect(Collectors.toList());
 //    }
 
-    public DataDto createData(DataDto data) { // allow only to create but not update
-        if (data.getId() != null) {
-            Optional<Data> tempData = dataRepository.findById(data.getId());
-            if (tempData.isPresent()) {
-                throw new ResponseStatusException(
-                        HttpStatus.METHOD_NOT_ALLOWED, "Data already exists");
-            }
-        }
-        System.out.println(DataMapper.mapDataEntity(data).getId());
-        Data savedData = dataRepository.
-                save(DataMapper.mapDataEntity(data));
-        return DataMapper.mapDataDto(savedData);
+    public List<DataDto> createData(List<DataDto> data) { // allow only to create but not update
+        data.forEach((item) -> {
+            item.setId(null);
+        });
+
+        List<Data> savedData = dataRepository.
+                saveAll(data.stream().map(DataMapper::mapDataEntity).collect(Collectors.toList()));
+        return savedData.stream().map(DataMapper::mapDataDto).collect(Collectors.toList());
     }
 
     public DataDto updateData(Long id, DataDto data) { // allow only to update, but not delete
@@ -72,7 +68,7 @@ public class DataService {
     }
 
     public List<DataDto> checkDate(LocalDate date) {
-        return dataRepository.findAllByDateIsGreaterThanEqual(date)
+        return dataRepository.findAllByDateIsLessThanEqual(date)
                 .stream()
                 .map(DataMapper::mapDataDto)
                 .collect(Collectors.toList());
