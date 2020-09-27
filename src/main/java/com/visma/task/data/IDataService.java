@@ -16,7 +16,7 @@ public interface IDataService {
 
     public List<DataDto> createData(List<DataDto> data);
 
-    public DataDto updateData(Long id, DataDto data) ;
+    public DataDto updateData(Long id, DataDto data);
 
     public void deleteData(Long id);
 

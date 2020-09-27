@@ -16,7 +16,7 @@ public class DataController {
     @Autowired
     IDataService dataService;
 
-//    @RequestMapping(path = "/data", method = RequestMethod.GET)
+    //    @RequestMapping(path = "/data", method = RequestMethod.GET)
 //    public List<DataDto> getAllData() {
 //        return dataService.getAllData();
 //    }
@@ -25,16 +25,19 @@ public class DataController {
     public List<DataDto> createData(@RequestBody List<DataDto> data) {
         return dataService.createData(data);
     }
+
     @CrossOrigin
     @RequestMapping(path = "/data", method = RequestMethod.PUT)
     public DataDto updateData(@RequestParam Long id, @RequestBody DataDto data) {
         return dataService.updateData(id, data);
     }
+
     @CrossOrigin
     @RequestMapping(path = "/dataCheck", params = {"type", "quantity"}, method = RequestMethod.GET)
     public List<DataDto> checkQuantity(@RequestParam String type, @RequestParam int quantity) {
         return dataService.checkQuantity(type, quantity);
     }
+
     @CrossOrigin
     @RequestMapping(path = "/dataCheck", params = {"date"}, method = RequestMethod.GET)
     public List<DataDto> checkDate(@RequestParam String date) {
@@ -45,6 +48,7 @@ public class DataController {
                     HttpStatus.METHOD_NOT_ALLOWED, "Provided date is incorrect", ex);
         }
     }
+
     @CrossOrigin
     @RequestMapping(path = "/data/{id}", method = RequestMethod.DELETE)
     public void createData(@PathVariable Long id) {
