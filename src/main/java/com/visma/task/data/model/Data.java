@@ -1,7 +1,6 @@
-package com.visma.task.storage.model;
+package com.visma.task.data.model;
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +19,7 @@ public class Data {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String type;
+    private String code;
     private int quantity;
     private LocalDate date;
 }

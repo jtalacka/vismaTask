@@ -1,4 +1,4 @@
-package com.visma.task.storage.model.dto;
+package com.visma.task.data.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,4 +12,5 @@ public class DataDto {
     private String type;
     private int quantity;
     private LocalDate date;
+    private String code;
 }
